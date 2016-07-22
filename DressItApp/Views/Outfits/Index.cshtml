@@ -1,0 +1,74 @@
+﻿@model IEnumerable<DressItApp.Models.Outfit>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@*<p>
+    @Html.ActionLink("Create New", "Create")
+</p>*@
+<table class="table">
+    <tr>
+        <th>
+            Outfit Name
+        </th>
+        <th>
+            Top
+        </th>
+        <th>
+            Bottom
+        </th>
+        <th>
+            Shoes
+        </th>
+        <th>
+            Accessory
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.OutfitName)
+            </td>
+            <td>
+                @if (item.Top.TypeID == 1)
+                { @Html.DisplayFor(modelItem => item.Top.Name)
+                  <img src="@item.Top.Photo" height="50" alt ="image not available" />}
+
+            </td>
+            <td>
+                @if (item.Bottom.TypeID == 2)
+                { @Html.DisplayFor(modelItem => item.Bottom.Name)
+                    <img src="@item.Bottom.Photo" height="50" alt="image not available" />}
+
+            </td>
+            <td>
+                @if (item.Shoes.TypeID == 3)
+                { @Html.DisplayFor(modelItem => item.Shoes.Name)
+                    <img src="@item.Shoes.Photo" height="50" alt="image not available" />}
+
+            </td>
+            
+            <td>
+                @foreach (var accessory in item.Accessories)
+                {
+                    @Html.DisplayFor(modelItem => accessory.Name)
+                   
+                }
+
+            </td>
+
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.OutfitID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.OutfitID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.OutfitID })
+            </td>
+        </tr>
+    }
+
+</table>

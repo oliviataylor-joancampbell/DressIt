@@ -1,0 +1,29 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>Dress It</h1>
+    <p class="lead">Inventory your wardrobe and create your outfit.</p>
+    @*<p><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>*@
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>@Html.ActionLink("Inventory", "Index", "WardrobeItems")</h2>
+        <p>
+            Manage you Inventory
+        </p>
+        <p><a class="btn btn-default" href="@Url.Action("Index","WardrobeItems")">Inventory</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>@Html.ActionLink("Create Outfit", "Index", "Outfits/Create")</h2>
+        <p>Pick from your wardrobe to create an outfit.</p>
+        <p><a class="btn btn-default" href="@Url.Action("Index","Outfits/Create")">Closet</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>@Html.ActionLink("Manage Outfits", "Index", "Outfits")</h2>
+        <p>View and manage your outfits.</p>
+        <p><a class="btn btn-default" href="@Url.Action("Index","Outfits")">Outfit</a></p>
+    </div>
+</div>
